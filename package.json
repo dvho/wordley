@@ -1,0 +1,15 @@
+{
+  "name": "wordley",
+  "version": "1.0.0",
+  "description": "Wordley is a lightweight module to help you solve Wordle if you're in a bind.",
+  "main": "wordley.js",
+  "scripts": {
+    "test": "node wordley.test.js",
+    "prepublish": "npm test"
+  },
+  "keywords": [
+    "Wordle"
+  ],
+  "author": "David H.",
+  "license": "MIT"
+}
