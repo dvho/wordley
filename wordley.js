@@ -1,4 +1,4 @@
-const englishWords = require('./englishWords')
+let wordleOptions = require('./wordleOptions')
 
 module.exports = (position1, position2, position3, position4, position5, position6) => { //Argument is 6 strings at 6 respective positions. If any of strings 1 - 5 have an uppercase letter that letter is at that position, if any have a lowercase letter or letters that letter is or those letters are in the word but excluded from that position, and all letters in position 6 not also in positions 1 - 5 are excluded from the word, hence, position 6 can safely consist of the previous rounds' entire words. A position with no entry must be signified with an empty string.
 
@@ -34,15 +34,14 @@ module.exports = (position1, position2, position3, position4, position5, positio
         return string
     }
 
-    let wordleyOptions = englishWords.filter(i => i.length === 5)
 
-    const removeFromWordleyOptions = []
+    const removeFromWordleOptions = []
 
-    wordleyOptions.forEach(i => {
+    wordleOptions.forEach(i => {
         if (entry[5] !== '') {
             entry[5].split('').forEach(j => {
                 if (i.includes(j) && !entry.slice(0, 5).join('').toLowerCase().includes(j)) {
-                    removeFromWordleyOptions.push(i)
+                    removeFromWordleOptions.push(i)
                 }
             })
         }
@@ -51,11 +50,11 @@ module.exports = (position1, position2, position3, position4, position5, positio
             if (j !== '' && index < 5) {
                 j.split('').forEach(k => {
                     if (upperCase.test(k) && i.split('')[index] !== k.toLowerCase()) {
-                        removeFromWordleyOptions.push(i)
+                        removeFromWordleOptions.push(i)
                     }
                     if (lowerCase.test(k)) {
                         if (!i.includes(k) || i.split('')[index] === k) {
-                            removeFromWordleyOptions.push(i)
+                            removeFromWordleOptions.push(i)
                         }
                     }
                 })
@@ -63,8 +62,8 @@ module.exports = (position1, position2, position3, position4, position5, positio
         })
     })
 
-    wordleyOptions = wordleyOptions.filter(i => !removeFromWordleyOptions.includes(i))
+    wordleOptions = wordleOptions.filter(i => !removeFromWordleOptions.includes(i))
 
-    return wordleyOptions
+    return wordleOptions
 
 }
