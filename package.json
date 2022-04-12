@@ -1,6 +1,6 @@
 {
   "name": "wordley",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Wordley is a lightweight module to help you solve Wordle if you're in a bind.",
   "main": "wordley.js",
   "scripts": {
