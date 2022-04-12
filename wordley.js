@@ -2,6 +2,7 @@ let wordleOptions = require('./wordleOptions')
 
 module.exports = (position1, position2, position3, position4, position5, position6) => { //Argument is 6 strings at 6 respective positions. If any of strings 1 - 5 have an uppercase letter that letter is at that position, if any have a lowercase letter or letters that letter is or those letters are in the word but excluded from that position, and all letters in position 6 not also in positions 1 - 5 are excluded from the word, hence, position 6 can safely consist of the previous rounds' entire words. A position with no entry must be signified with an empty string.
 
+    const usedWords = position6.match(/.{1,5}/g) //Splits the string sequentually into an array of 5 character strings
     const entry = [position1, position2, position3, position4, position5, position6]
 
     const alphabeticCharactersOnly = /\b[a-zA-Z]+\b/  //Matches all words that don't contain digits nor special characters
@@ -35,7 +36,7 @@ module.exports = (position1, position2, position3, position4, position5, positio
     }
 
 
-    const removeFromWordleOptions = []
+    const removeFromWordleOptions = usedWords //Initialize this with usedWords
 
     wordleOptions.forEach(i => {
         if (entry[5] !== '') {
