@@ -1,8 +1,9 @@
 # Wordley
-_Wordley_ is a lightweight module to help you solve Wordle if you're in a bind.
+_Wordley_ will help you solve Wordle if you're in a bind.
 
 <img src="https://user-images.githubusercontent.com/45696445/162882437-f4c879f8-7f6b-4d18-8093-d15b58fa4563.gif">
 <img src="https://user-images.githubusercontent.com/45696445/162882477-e84f02f3-0d56-49fa-8590-b89b70c754dc.gif">
+<img src="https://user-images.githubusercontent.com/45696445/163201657-f0929f8a-90ed-4df3-aa3a-5f3b3bc60427.gif">
 
 _________________________
 
@@ -14,7 +15,7 @@ var wordley = require('wordley');
 _________________________
 &nbsp;
 ## Notes
-_Wordley_ is a lightweight module to help you solve Wordle if you're in a bind. It takes 6 strings, the first 5 representing the 5 respective letters in the word and the last as a place to discard used words. Make your first guess on Wordle and then in Wordley use an uppercase letter in any of positions 1 - 5 to confirm that letter at that position, a lowercase letter in any of positions 1 - 5 to confirm that letter in the word but not at that position, and position 6 as a discard sequence of used words. A position with no entry must be signified with an empty string.
+_Wordley_ will help you solve Wordle if you're in a bind. It takes 6 strings, the first 5 representing the 5 respective letters in the word and the last as a place to discard used words. Make your first guess on Wordle and then in Wordley use an uppercase letter in any of positions 1 - 5 to confirm that letter at that position, a lowercase letter in any of positions 1 - 5 to confirm that letter in the word but not at that position, and position 6 as a discard sequence of used words. A position with no entry must be signified with an empty string.
 
 ## Installation
 With [npm](http://npmjs.org) do
