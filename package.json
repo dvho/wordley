@@ -1,6 +1,6 @@
 {
   "name": "wordley",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Wordley will help you solve Wordle if you're in a bind.",
   "main": "wordley.js",
   "scripts": {

@@ -15,7 +15,7 @@ var wordley = require('wordley');
 _________________________
 &nbsp;
 ## Notes
-_Wordley_ will help you solve Wordle if you're in a bind. It takes 6 strings, the first 5 representing the 5 respective letters in the word and the last as a place to discard used words. Make your first guess on Wordle and then in Wordley use an uppercase letter in any of positions 1 - 5 to confirm that letter at that position, a lowercase letter in any of positions 1 - 5 to confirm that letter in the word but not at that position, and position 6 as a discard sequence of used words. A position with no entry must be signified with an empty string.
+_Wordley_ will help you solve Wordle if you're in a bind. It takes 6 strings, the first 5 representing the 5 respective letters in the word and the last as a place to discard used words. Make your first guess on Wordle and then in _Wordley_ use an uppercase letter in any of positions 1 - 5 to confirm that letter at that position, a lowercase letter in any of positions 1 - 5 to confirm that letter in the word but not at that position, and position 6 as a discard sequence of used words. A position with no entry must be signified with an empty string.
 
 ## Installation
 With [npm](http://npmjs.org) do
