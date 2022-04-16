@@ -33,7 +33,7 @@ module.exports = (...args) => { //Wordley is a variadic function. Arguments are 
     let options = englishWords.filter(i => i.length === wordLength)
     const usedWords = args[wordLength].match(new RegExp('.{1,' + wordLength + '}', 'g')) //Splits the string sequentually into an array of strings which are (n-1) in length
 
-    const removeFromOptions = usedWords //Initialize this with usedWords
+    const removeFromOptions = usedWords ? usedWords : [] //Initialize this with usedWords
 
     const upperCase = /[A-Z]/ //Matches uppercase letters
     const lowerCase = /[a-z]/ //Matches lowercase letters
