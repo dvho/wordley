@@ -1,20 +1,14 @@
-let wordleOptions = require('./wordleOptions')
+let englishWords = require('./englishWords')
 
-module.exports = (position1, position2, position3, position4, position5, position6) => { //Argument is 6 strings at 6 respective positions. If any of strings 1 - 5 have an uppercase letter that letter is at that position, if any have a lowercase letter or letters that letter is or those letters are in the word but excluded from that position, and all letters in position 6 not also in positions 1 - 5 are excluded from the word, hence, position 6 can safely consist of the previous rounds' entire words. A position with no entry must be signified with an empty string.
+module.exports = (...args) => { //Wordley is a variadic function. Arguments are n strings at n-1 respective positions as long as n >= 2. If any of strings 1 - (n-1) have an uppercase letter that letter is at that position, if any have a lowercase letter or letters that letter is or those letters are in the word but excluded from that position, and all letters in position n not also in positions 1 - (n-1) are excluded from the word, hence, position n can safely consist of the previous rounds' entire words and is used as such to subtract the letters as well as full words from the output. A position with no entry must be signified with an empty string.
 
-    const usedWords = position6.match(/.{1,5}/g) //Splits the string sequentually into an array of 5 character strings
-    const entry = [position1, position2, position3, position4, position5, position6]
-
-    const alphabeticCharactersOnly = /\b[a-zA-Z]+\b/  //Matches all words that don't contain digits nor special characters
-    const upperCase = /[A-Z]/ //Matches uppercase letters
-    const lowerCase = /[a-z]/ //Matches lowercase letters
-
-    if (entry.length !== 6) {
-        return ('Your entry is invalid. Make sure you have 6 positions properly input.')
+    if (args.length < 2) {
+        return ('Your entry is invalid. Make sure you have at least 2 entries in your input.')
     }
 
     let badInputsArray = []
-    entry.forEach((i, index) => {
+    const alphabeticCharactersOnly = /\b[a-zA-Z]+\b/  //Matches all words that don't contain digits nor special characters
+    args.forEach((i, index) => {
         if (!alphabeticCharactersOnly.test(i) && i !== '') {
             badInputsArray.push(index)
         }
@@ -29,33 +23,39 @@ module.exports = (position1, position2, position3, position4, position5, positio
             return `and ${i + 1}`
         }
     })
-
     if (badInputsArray.length > 0) {
         const string = badInputsArray.length > 1 ? `Your inputs are not valid at positions ${badInputsArray.join('')}.` : `Your input is not valid at position ${badInputsArray[0]}.`
         return string
     }
 
 
-    const removeFromWordleOptions = usedWords //Initialize this with usedWords
+    const wordLength = args.length - 1
+    let options = englishWords.filter(i => i.length === wordLength)
+    const usedWords = args[wordLength].match(new RegExp('.{1,' + wordLength + '}', 'g')) //Splits the string sequentually into an array of strings which are (n-1) in length
 
-    wordleOptions.forEach(i => {
-        if (entry[5] !== '') {
-            entry[5].split('').forEach(j => {
-                if (i.includes(j) && !entry.slice(0, 5).join('').toLowerCase().includes(j)) {
-                    removeFromWordleOptions.push(i)
+    const removeFromOptions = usedWords //Initialize this with usedWords
+
+    const upperCase = /[A-Z]/ //Matches uppercase letters
+    const lowerCase = /[a-z]/ //Matches lowercase letters
+
+    options.forEach(i => {
+        if (args[wordLength] !== '') {
+            args[wordLength].split('').forEach(j => {
+                if (i.includes(j) && !args.slice(0, wordLength).join('').toLowerCase().includes(j)) {
+                    removeFromOptions.push(i)
                 }
             })
         }
 
-        entry.forEach((j, index) => {
-            if (j !== '' && index < 5) {
+        args.forEach((j, index) => {
+            if (j !== '' && index < wordLength) {
                 j.split('').forEach(k => {
                     if (upperCase.test(k) && i.split('')[index] !== k.toLowerCase()) {
-                        removeFromWordleOptions.push(i)
+                        removeFromOptions.push(i)
                     }
                     if (lowerCase.test(k)) {
                         if (!i.includes(k) || i.split('')[index] === k) {
-                            removeFromWordleOptions.push(i)
+                            removeFromOptions.push(i)
                         }
                     }
                 })
@@ -63,8 +63,8 @@ module.exports = (position1, position2, position3, position4, position5, positio
         })
     })
 
-    wordleOptions = wordleOptions.filter(i => !removeFromWordleOptions.includes(i))
+    options = options.filter(i => !removeFromOptions.includes(i))
 
-    return wordleOptions
+    return options
 
 }
