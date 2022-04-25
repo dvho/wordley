@@ -1,5 +1,5 @@
 # Wordley
-If you're in a bind _Wordley_ will help you solve Wordle, or any Wordle-like puzzle where the word length isn't necessarily 5 letters.
+If you're in a bind [_Wordley_](https://www.npmjs.com/package/wordley) will help you solve Wordle, or any Wordle-like puzzle where the word length isn't necessarily 5 letters.
 
 <img src="https://user-images.githubusercontent.com/45696445/162882437-f4c879f8-7f6b-4d18-8093-d15b58fa4563.gif">
 <img src="https://user-images.githubusercontent.com/45696445/162882477-e84f02f3-0d56-49fa-8590-b89b70c754dc.gif">
@@ -15,7 +15,7 @@ var wordley = require('wordley');
 _________________________
 &nbsp;
 ## Notes
-_Wordley_ will help you solve Wordle or any Wordle-like puzzle if you're in a bind. It's a variadic function that takes _n_ strings, the first (_n_-1) representing the (_n_-1) respective letters in the word and the _nth_ as a place to discard used words. Make your first guess on Wordle, or other Wordle-like puzzle where the word length isn't necessarily 5 letters, and then in _Wordley_ use an uppercase letter in any of positions 1 - (_n_-1) to confirm that letter at that position, a lowercase letter in any of positions 1 - (_n_-1) to confirm that letter in the word but not at that position, and position _n_ as a discard sequence of used words. A position with no entry must be signified with an empty string.
+[_Wordley_](https://www.npmjs.com/package/wordley) will help you solve Wordle or any Wordle-like puzzle if you're in a bind. It's a variadic function that takes _n_ strings, the first (_n_-1) representing the (_n_-1) respective letters in the word and the _nth_ as a place to discard used words. Make your first guess on Wordle, or other Wordle-like puzzle where the word length isn't necessarily 5 letters, and then in [_Wordley_](https://www.npmjs.com/package/wordley) use an uppercase letter in any of positions 1 - (_n_-1) to confirm that letter at that position, a lowercase letter in any of positions 1 - (_n_-1) to confirm that letter in the word but not at that position, and position _n_ as a discard sequence of used words. A position with no entry must be signified with an empty string.
 
 ## Installation
 With [npm](http://npmjs.org) do
