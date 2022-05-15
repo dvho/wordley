@@ -20,7 +20,7 @@ if (invalidInput4 !== 'Your inputs are not valid at positions 2, 4, and 6.') {
     throw new Error('Wordley is not recognizing invalid inputs')
 }
 
-const invalidInput5 = test('?','a','35','35','fopORANGE?'))
+const invalidInput5 = test('?','a','35','35','fopORANGE?')
 if (invalidInput5 !== 'Your inputs are not valid at positions 1, and 5.') {
     throw new Error('Wordley is not recognizing invalid inputs')
 }
