@@ -1,16 +1,33 @@
 {
   "name": "wordley",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "If you're in a bind Wordley will help you solve Wordle, or any Wordle-like puzzle where the word length isn't necessarily 5 letters.",
   "main": "wordley.js",
+  "files": [
+    "package.json",
+    "englishWords.js",
+    "wordley.js",
+    "wordley.test.js",
+    "readme.md"
+  ],
   "scripts": {
     "test": "node wordley.test.js",
-    "prepublish": "npm test",
-    "work": "node wordley.work.js"
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "Wordle",
-    "Crossword"
+    "Crossword",
+    "Puzzle",
+    "Game",
+    "Word",
+    "Guess",
+    "Solve",
+    "Word games",
+    "Word puzzles",
+    "Wordle solver",
+    "Crossword solver",
+    "Puzzle solver",
+    "Game solver"
   ],
   "author": "David H.",
   "license": "MIT"
